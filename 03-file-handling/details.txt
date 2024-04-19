@@ -1,0 +1,3 @@
+Name: Chandan Kumar
+Contact No: +9111111111
+Hey, I'm appending from "appendFileSync" 
