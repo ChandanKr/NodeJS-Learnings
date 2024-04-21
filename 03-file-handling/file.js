@@ -4,13 +4,13 @@ const fs = require("fs");
 //? How to **CREATE** a file with fs => "writeFile"
 //===================================================
 
-//* Synchronous
+//* Synchronous (Blocking Operation)
 // fs.writeFileSync(
 //   "./03-file-handling/test.txt",
 //   `Hey there 🙋‍♂️, this file is created from Synchronous part of "./03-file-handling/file.js"`
 // );
 
-//* Asynchronous
+//* Asynchronous (Non-Blocking Operation)
 // fs.writeFile(
 //   "./03-file-handling/test.txt",
 //   `Hey there 🙋‍♂️, this file is created from Asynchronous part of "./03-file-handling/file.js"`,
