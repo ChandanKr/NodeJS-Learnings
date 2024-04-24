@@ -5,9 +5,12 @@
   "main": "01-hello-world.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./05-Handling-URLs/index.js"
+    "start": "node ./06-HTTP-Methods/index.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "url": "^0.11.3"
+  }
 }

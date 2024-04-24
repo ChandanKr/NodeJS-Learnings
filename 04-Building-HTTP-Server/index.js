@@ -2,7 +2,22 @@ const http = require("http");
 const fs = require("fs");
 
 const myServer = http.createServer((req, res) => {
-  const log = `${Date.now()} : New Request Received - ${req.url}\n`;
+  var currentdate = new Date();
+  var datetime =
+    currentdate.getDate() +
+    "/" +
+    (currentdate.getMonth() + 1) +
+    "/" +
+    currentdate.getFullYear() +
+    " @ " +
+    currentdate.getHours() +
+    ":" +
+    currentdate.getMinutes() +
+    ":" +
+    currentdate.getSeconds();
+
+  const log = `${datetime} : New Request Received - ${req.url}\n`;
+  
   fs.appendFile("./04-Building-HTTP-Server/log.txt", log, (err, data) => {
     switch (req.url) {
       case "/":
@@ -21,4 +36,6 @@ const myServer = http.createServer((req, res) => {
   });
 });
 
-myServer.listen(8000, () => console.log("Server Started at http://localhost:8000/"));
+myServer.listen(8000, () =>
+  console.log("Server Started at http://localhost:8000/")
+);
