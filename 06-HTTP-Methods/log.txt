@@ -1,3 +1,5 @@
 New Request Received - /about?myname=chandan&age=27&dev=true - Method: GET
 New Request Received - /about?signup - Method: GET
 New Request Received - /signup - Method: GET
+New Request Received - / - Method: GET
+New Request Received - / - Method: GET

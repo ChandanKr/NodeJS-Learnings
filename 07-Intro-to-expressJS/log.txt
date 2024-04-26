@@ -1,0 +1,2 @@
+New Request Received - / - Method: GET
+New Request Received => Path: / and Method: GET
