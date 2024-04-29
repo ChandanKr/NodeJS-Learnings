@@ -2,15 +2,15 @@
 
     //! url = https://www.youtube.com/results?search_query=nodejs+tutorial+in+one+video
 
-    //* protocol => https://
+    //* Part 1: protocol => https://
     //?  Hypertext Transfer Protocol Secure
 
-    //* domain => www.youtube.com
+    //* Part 2: domain => www.youtube.com
     //? User Friendly Name of IP Address of Our Server
 
-    //* path => /results
+    //* Part 3: path => /results
 
-    //* query parameters = ?search_query=nodejs+tutorial+in+one+video 
+    //* Part 4: query parameters = ?search_query=nodejs+tutorial+in+one+video 
     //? starts with ? and separated with & , if we have multiple query params, + is used for spaces
 
 //todo: INSTALL url LIBRARY

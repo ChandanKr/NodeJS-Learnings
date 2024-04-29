@@ -1,0 +1,7 @@
+Time: "1714350185346", IP Address: "::1", Method: "GET", Path: "/api/users/"
+Time: "1714350304218", IP Address: "::1", Method: "POST", Path: "/api/users/"
+Time: "1714350430794", IP Address: "::1", Method: "POST", Path: "/api/users/"
+Time: "1714350591180", IP Address: "::1", Method: "POST", Path: "/api/users/"
+Time: "1714350618124", IP Address: "::1", Method: "POST", Path: "/api/users/"
+Time: "1714350648344", IP Address: "::1", Method: "GET", Path: "/api/users/1001"
+Time: "1714350659545", IP Address: "::1", Method: "GET", Path: "/api/users/1002"
