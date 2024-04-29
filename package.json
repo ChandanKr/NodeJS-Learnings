@@ -4,7 +4,7 @@
   "description": "",
   "main": "01-hello-world.js",
   "scripts": {
-    "start": "nodemon ./09-express-middleware/index.js"
+    "start": "nodemon ./11-http-status-codes/index.js"
   },
   "keywords": [],
   "author": "",
