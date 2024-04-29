@@ -15,7 +15,7 @@ app.use((req, res, next) => {
   const date = new Date(Date.now());
 
   fs.appendFile(
-    "./10-http-headers/log.js",
+    "./11-http-status-codes/log.js",
     `//! Time: "${date.toLocaleString()}", IP Address: "${req.ip}", Method: "${
       req.method
     }", Path: "${req.path}"\n`,
@@ -28,7 +28,7 @@ app.use((req, res, next) => {
 //? /users ==> Render HTML Document for the message in homepage
 app.get("/", (req, res) => {
   const html = `
-    <h1> Hello From "HTTP Headers" Section</h1>
+    <h1> Hello From "HTTP Status Codes" Section</h1>
     <h2 style="color:red"><a href="http://localhost:8000/api/users/" target="_blank">Click here</a> for the users data...</h2>
 
     <h2 style="color:red"><a href="http://localhost:8000/users/" target="_blank">Click here</a> to get users name in li format</h2>
@@ -58,12 +58,26 @@ app.get("/api/users", (req, res) => {
 //todo: TASK 3 : POST /api/users => Create new user
 app.post("/api/users", (req, res) => {
   const body = req.body;
+
+  if (
+    !body ||
+    !body.first_name ||
+    !body.last_name ||
+    !body.email ||
+    !body.gender ||
+    !body.job_title
+  ) {
+    return res
+      .status(400)
+      .json({ msg: "Bad Request - All fields are required..." }); // setting status code for "400 Bad Request" if all body fields are not sent through request body
+  }
+
   users.push({ id: users.length + 1, ...body });
   fs.writeFile(
-    "./10-http-headers/MOCK_DATA.json",
+    "./11-http-status-codes/MOCK_DATA.json",
     JSON.stringify(users),
     (err, data) => {
-      return res.json({ status: "Success", id: users.length });
+      return res.status(201).json({ status: "Success", id: users.length }); // setting status code for "201 Created" first then retuning json data
     }
   );
 });
@@ -74,16 +88,22 @@ app
   .get((req, res) => {
     //* TASK 2 : Get the user with ID
     const id = Number(req.params.id);
+
+    // Please comment one of the below two lines:
     const userId = users.find((user) => user.id === id);
+    // const userId = users.find((user) => user[0].id === id); // it will automatically throw "500 Internal Server Error" as the issue in client side - typo mistake or any logic mistake in codebase.
+
+    if (!userId) return res.status(404).json({ error: "User Not Found." }); // setting status code for "404 Not Found" if user is not found with given userId in the request url
+
     return res.json(userId);
   })
   .patch((req, res) => {
     //* TASK 4 : Create new user with ID
-    return res.json({ status: "Pending" });
+    return res.status(501).json({ status: "Pending" }); // setting status code for "501 Not Implemented" as this is not implemented yet
   })
   .delete((req, res) => {
     //* TASK 5 : Delete the user with ID
-    return res.json({ status: "Pending" });
+    return res.status(501).json({ status: "Pending" }); // setting status code for "501 Not Implemented" as this is not implemented yet
   });
 
 app.listen(port, () => console.log("Server Started at http://localhost:8000/"));
